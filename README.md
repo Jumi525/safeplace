@@ -20,6 +20,17 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+safe-place is a new digital life guide app that allow you to forsee your environment
+
+safe-place is the only app that gives visual real outline of your environment
+
+features to be included:
+
+- video survelliance
+- safe windows
+- Alerts
+- Home security
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
