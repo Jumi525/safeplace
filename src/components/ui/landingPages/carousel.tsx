@@ -46,7 +46,7 @@ export default function Carousels() {
   const router = useRouter();
   return (
     <section className="bg-[#29353C] h-screen w-screen">
-      <Carousel className="w-screen mx-auto h-screen">
+      <Carousel className="w-full mx-auto h-full">
         <CarouselContent className="w-screen h-screen">
           {CarouselItems.map((value, index) => (
             <CarouselItem key={index} className="">
