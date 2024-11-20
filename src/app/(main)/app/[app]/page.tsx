@@ -1,6 +1,10 @@
 "use client";
 import React from "react";
 import { useParams } from "next/navigation";
+import Survelliance from "@/components/appPage/survelliance";
+import Alert from "@/components/appPage/alert";
+import Profile from "@/components/appPage/profile";
+import Community from "@/components/appPage/community";
 
 const SettingsPage = () => {
   const params = useParams();
@@ -8,16 +12,16 @@ const SettingsPage = () => {
 
   switch (path) {
     case "survelliance":
-      return <>survelliance</>;
+      return <Survelliance />;
 
     case "alert":
-      return <>alert</>;
+      return <Alert />;
 
     case "profile":
-      return <>profile</>;
+      return <Profile />;
 
     case "community":
-      return <>Community</>;
+      return <Community />;
 
     default:
       break;

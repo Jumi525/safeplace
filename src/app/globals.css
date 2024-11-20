@@ -76,3 +76,15 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.scrolls::-webkit-scrollbar {
+  height: 8px;
+}
+.scrolls::-webkit-scrollbar-button {
+  background-color: transparent;
+  width: 15%;
+}
+.scrolls::-webkit-scrollbar-thumb {
+  background-color: #97dee7;
+  border-radius: 20px;
+}
