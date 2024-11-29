@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation";
 const CarouselItems = [
   {
     svg: "/asset/clipart870636.png",
-    link: "survelliance",
+    link: "ar",
     name: "VIDEO SURVEILLIANCE",
     descript:
       "This app can analyse and provide real time visual overlays of emergencies that helps user understand the severity and extend of the incident",
@@ -22,7 +22,7 @@ const CarouselItems = [
   {
     svg: "/asset/clipart3195066.png",
     link: "alert",
-    name: "SAFE WINDOWS",
+    name: "ALERT",
     descript:
       "This app provides detailed and interactive maps to help users navigate evacuation routes or emergency shelters. it has a safety features that allows users to report incidents.",
   },

@@ -88,3 +88,14 @@ body {
   background-color: #97dee7;
   border-radius: 20px;
 }
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+video {
+  object-fit: cover;
+}
