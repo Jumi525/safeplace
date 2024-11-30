@@ -1,30 +1,33 @@
-import Carousels from "@/components/ui/landingPages/carousel";
-import * as React from "react";
+import { Keyboard, Languages, Palette, SparkleIcon, User } from "lucide-react";
+import Link from "next/link";
+import React from "react";
 
-export default function CarouselSpacing() {
+const Home: React.FC = () => {
   return (
-    <main className="relative">
-      <div className="absolute ml-3 flex items-center top-0 left-0 -translate-x-1/4 -translate-y-1/4 z-10">
-        <svg
-          version="1.0"
-          xmlns="http://www.w3.org/2000/svg"
-          width="300.000000pt"
-          height="177.000000pt"
-          viewBox="0 0 300.000000 177.000000"
-          preserveAspectRatio="xMidYMid meet"
-          className="h-40 w-40"
-        >
-          <metadata>
-            Created by potrace 1.10, written by Peter Selinger 2001-2011
-          </metadata>
-          <g
-            transform="translate(0.000000,177.000000) scale(0.100000,-0.100000)"
-            fill="#000000"
-            stroke="none"
+    <section className="min-h-screen bg-white px-3">
+      {/* Header */}
+      <header className="max-w-max pt-3 flex gap-2 items-center bg-transparent py-4">
+        <Link href={"/"} className="text-gray-700 ml-3 mr-2 h-11 w-11 relative">
+          <svg
+            version="1.0"
+            xmlns="http://www.w3.org/2000/svg"
+            width="300.000000pt"
+            height="177.000000pt"
+            viewBox="0 0 300.000000 177.000000"
+            preserveAspectRatio="xMidYMid meet"
+            className="h-40 w-40 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
           >
-            <path
-              className="fill-[#29353C]"
-              d="M1378 1297 c-42 -12 -70 -28 -145 -83 -21 -15 -24 -15 -49 5 -15 12
+            <metadata>
+              Created by potrace 1.10, written by Peter Selinger 2001-2011
+            </metadata>
+            <g
+              transform="translate(0.000000,177.000000) scale(0.100000,-0.100000)"
+              fill="#000000"
+              stroke="none"
+            >
+              <path
+                className="fill-[#29353C]"
+                d="M1378 1297 c-42 -12 -70 -28 -145 -83 -21 -15 -24 -15 -49 5 -15 12
 -33 21 -40 21 -8 0 -14 5 -14 10 0 17 -26 11 -45 -10 -10 -11 -19 -30 -20 -44
 -4 -31 -32 -74 -55 -81 -47 -15 -74 -87 -59 -156 9 -40 8 -43 -22 -68 -32 -27
 -32 -28 -21 -77 6 -27 14 -62 18 -79 3 -18 26 -50 56 -79 91 -87 216 -127 373
@@ -60,33 +63,72 @@ m-967 -214 c39 -28 88 -97 76 -108 -2 -3 -22 -1 -44 4 -66 15 -119 66 -131
 -42z m-875 -60 c11 -12 10 -18 -3 -32 -16 -15 -18 -15 -34 0 -13 14 -14 20 -3
 32 7 9 16 16 20 16 4 0 13 -7 20 -16z m687 0 c7 -19 -20 -49 -36 -40 -12 8
 -15 39 -4 49 12 12 33 7 40 -9z"
-            />
-            <path
-              className="fill-[#29353C]"
-              d="M1393 1241 c-149 -51 -229 -169 -221 -324 6 -121 71 -223 176 -274
+              />
+              <path
+                className="fill-[#29353C]"
+                d="M1393 1241 c-149 -51 -229 -169 -221 -324 6 -121 71 -223 176 -274
 49 -24 69 -28 142 -28 73 0 93 4 142 28 190 93 241 343 103 505 -37 44 -90 77
 -155 96 -69 21 -122 20 -187 -3z m218 -40 c56 -25 123 -96 149 -157 28 -65 27
 -159 -4 -226 -48 -107 -140 -167 -262 -170 -93 -2 -159 27 -219 96 -57 64 -75
 120 -72 212 3 60 8 79 35 121 17 27 42 59 54 70 27 25 93 63 128 73 43 13 143
 3 191 -19z"
-            />
-            <path
-              className="fill-[#29353C]"
-              d="M1443 1082 c-29 -4 -63 -48 -63 -81 0 -14 14 -44 30 -65 33 -44 37
+              />
+              <path
+                className="fill-[#29353C]"
+                d="M1443 1082 c-29 -4 -63 -48 -63 -81 0 -14 14 -44 30 -65 33 -44 37
 -56 17 -56 -23 0 -49 -37 -43 -58 9 -28 44 -38 112 -32 77 6 104 27 104 80 0
 26 -9 48 -30 75 -30 37 -30 38 -10 55 25 21 26 52 3 72 -17 15 -61 18 -120 10z
 m117 -42 c0 -23 -17 -25 -44 -5 -14 11 -23 12 -33 4 -22 -19 -15 -38 37 -90
 64 -64 69 -102 15 -125 -19 -7 -55 -14 -80 -14 -41 0 -45 2 -45 25 0 28 12 32
 30 9 8 -8 25 -14 39 -12 43 5 37 37 -19 96 -78 83 -61 132 47 132 46 0 53 -3
 53 -20z"
-            />
-          </g>
-        </svg>
-        <p className="-ml-10 font-bold text-lg font-sans text-[#29353C]">
-          SHELTER
-        </p>
-      </div>
-      <Carousels />
-    </main>
+              />
+            </g>
+          </svg>
+        </Link>
+        <h1 className="text-lg font-semibold text-gray-900">SHELTER</h1>
+      </header>
+
+      {/* Main Content */}
+      <section className="w-full mt-4 rounded-lg">
+        {/* Title */}
+        <div className="flex items-center gap-3 border-t-[1px] py-2 border-b-[1px] border-solid border-black/30">
+          <SparkleIcon />
+          <div>
+            <h2 className="text-lg font-semibold text-gray-900">
+              Anonymous report
+            </h2>
+            <p className="text-sm text-gray-600">
+              Suggestions, tone detection, predictive text
+            </p>
+          </div>
+        </div>
+
+        {/* Options */}
+        <ul className="divide-y divide-gray-300">
+          {[
+            { label: "Community Forum", icon: <Palette /> },
+            { label: "Community Response", icon: <Languages /> },
+            { label: "Contacts", icon: <Keyboard /> },
+            { label: "ChecK-in System", icon: <User /> },
+            // { label: "Feedback", icon: <NotepadText /> },
+            // { label: "Support", icon: <CircleAlert /> },
+            // { label: "About", icon: <Info /> },
+          ].map((item) => (
+            <li
+              key={item.label}
+              className="flex items-center justify-between py-3 cursor-pointer hover:bg-blue-100"
+            >
+              <div className="flex items-center space-x-3">
+                {item.icon}
+                <span className="text-sm text-gray-800">{item.label}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </section>
   );
-}
+};
+
+export default Home;

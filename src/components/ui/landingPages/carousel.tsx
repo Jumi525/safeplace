@@ -21,22 +21,22 @@ const CarouselItems = [
   },
   {
     svg: "/asset/clipart3195066.png",
-    link: "alert",
-    name: "ALERT",
+    link: "profile",
+    name: "SAFE WINDOW",
     descript:
       "This app provides detailed and interactive maps to help users navigate evacuation routes or emergency shelters. it has a safety features that allows users to report incidents.",
   },
   {
     svg: "/asset/clipart488294.png",
-    link: "profile",
-    name: "PROFILE",
+    link: "alerts",
+    name: "ALERT",
     descript:
       "Users can create and customize personnal safety profile with medical information, emergency contacts , allergies, and other essentials details for first responders during emergencies",
   },
   {
     svg: "/asset/clipart2267689.png",
-    link: "community",
-    name: "COMMUNITY FORUM",
+    link: "alert",
+    name: "HOME SECURITY",
     descript:
       "A platform for users to share stories, advices and information related to emergency response and safety",
   },
@@ -45,15 +45,15 @@ const CarouselItems = [
 export default function Carousels() {
   const router = useRouter();
   return (
-    <section className="bg-[#29353C] h-screen w-screen">
+    <section className="h-screen w-screen bg-slate-200">
       <Carousel className="w-full mx-auto h-full">
         <CarouselContent className="w-screen h-screen">
           {CarouselItems.map((value, index) => (
             <CarouselItem key={index} className="">
               <div className="p-1 h-full w-screen">
-                <Card className="p-1 h-full w-full bg-[#768A96]">
+                <Card className="p-1 h-full w-full">
                   <CardContent className="flex items-center justify-center w-full h-full p-6">
-                    <div className=" relative bg-[#DFEBF6] h-full w-full grid grid-rows-3 justify-center items-center">
+                    <div className=" relative h-full w-full grid grid-rows-3 justify-center items-center">
                       <p className=" font-bold text-lg text-center">
                         {value.name}
                       </p>

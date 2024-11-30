@@ -4,11 +4,13 @@ import React from "react";
 
 const LocationApp: React.FC = () => {
   return (
-    <div className="w-full h-full bg-blue-500 min-h-screen max-h-screen flex flex-col justify-around rounded-lg shadow-md p-4">
+    <div className="w-full h-full bg-[#008b8b] min-h-screen max-h-screen flex flex-col justify-around shadow-md p-4">
       <div className="text-center">
-        <div className="w-20 h-20 mx-auto rounded-full bg-blue-300"></div>
+        <div className="w-20 h-20 mx-auto rounded-full bg-blue-200 grid place-content-center font-bold text-5xl">
+          M
+        </div>
         <h2 className="text-lg font-bold text-gray-800 mt-2">Mmenyene</h2>
-        <p className="text-sm text-gray-500">mmenyene123@gmail.com</p>
+        <p className="text-sm text-gray-600">mmenyene123@gmail.com</p>
       </div>
       <div className="mt-6 space-y-4 ">
         {[
@@ -29,11 +31,11 @@ const LocationApp: React.FC = () => {
       <div className="mt-6 flex justify-between">
         <Link
           href={"/"}
-          className="px-4 py-2 bg-blue-500 text-white rounded-lg"
+          className="px-4 py-2 bg-[#3E414a] text-white rounded-lg"
         >
           Home
         </Link>
-        <button className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg">
+        <button className="px-4 py-2 bg-blue-200 text-gray-700 rounded-lg">
           Sign Out
         </button>
       </div>

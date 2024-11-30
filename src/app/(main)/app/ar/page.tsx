@@ -4,6 +4,7 @@ import axios from "axios";
 import { MoveLeft } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 type suggestionProps = {
   place_id: number;
@@ -17,6 +18,7 @@ type stepProps = {
 };
 
 const ARMapCompass = () => {
+  const { toast } = useToast();
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [userLocation, setUserLocation] = useState<{
@@ -161,13 +163,19 @@ const ARMapCompass = () => {
         const { lat, lon } = data[0];
         console.log("Geocoded destination:", lat, lon);
         setDestination({ lat: parseFloat(lat), lng: parseFloat(lon) });
-        alert(`Destination set: ${place} (${lat}, ${lon})`);
+        toast({
+          title: "Location: Catch up",
+          description: `Destination set: ${place} (${lat}, ${lon})`,
+        });
       } else {
-        alert("Location not found. Please enter a valid place.");
+        toast({
+          title: "Turn on your location",
+          description: "Location not found. Please enter a valid place.",
+        });
       }
     } catch (error) {
       console.error("Error fetching geocoded destination:", error);
-      alert("Failed to fetch destination. Please try again.");
+      toast({ description: "Failed to fetch destination. Please try again." });
     }
   };
 
@@ -175,7 +183,9 @@ const ARMapCompass = () => {
   const fetchRoute = async () => {
     if (!userLocation || !destination) {
       console.log("location", userLocation, "destination", destination);
-      alert("Please specify your current location and destination.");
+      toast({
+        description: "Please specify your current location and destination.",
+      });
       return;
     }
 
@@ -198,11 +208,11 @@ const ARMapCompass = () => {
         );
         renderCompass(steps);
       } else {
-        alert("Route not found. Please check your locations.");
+        toast({ description: "Route not found. Please check your locations." });
       }
     } catch (error) {
       console.error("Error fetching route:", error);
-      alert("Failed to fetch route. Please try again.");
+      toast({ description: "Failed to fetch route. Please try again." });
     }
   };
 
@@ -259,7 +269,7 @@ const ARMapCompass = () => {
       {/*return button*/}
       <Link
         href={"/"}
-        className="absolute z-20 top-2 left-2 min-w-max min-h-max rounded-md bg-blue-400"
+        className="absolute z-20 top-2 left-2 min-w-max p-2 min-h-max rounded-full bg-[#008b8b]"
       >
         <MoveLeft />
       </Link>
@@ -270,7 +280,7 @@ const ARMapCompass = () => {
       ></canvas>
 
       {/* Destination Input */}
-      <div className="absolute bottom-[8%] left-1/2 -translate-x-1/2 bg-white/80 p-2 rounded-md flex flex-col gap-3 items-center max-w-max mx-auto">
+      <div className="absolute bottom-[8%] left-1/2 -translate-x-1/2 bg-[#008b8b] p-2 rounded-md flex flex-col gap-3 items-center max-w-max mx-auto">
         {/* Suggestions Dropdown */}
         {suggestions.length > 0 && (
           <ul
@@ -318,13 +328,13 @@ const ARMapCompass = () => {
 
           <button
             onClick={() => geocodeDestination(searchTerm)}
-            className="p-2 bg-blue-500 text-white cursor-pointer rounded-sm"
+            className="p-2 bg-[#3E414A] text-white cursor-pointer rounded-sm"
           >
             Set
           </button>
           <button
             onClick={fetchRoute}
-            className="p-2 bg-slate-500 rounded-sm cursor-pointer"
+            className="p-2 bg-[#3E414A] text-white rounded-sm cursor-pointer"
           >
             Go
           </button>
