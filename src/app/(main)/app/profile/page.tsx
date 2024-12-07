@@ -14,18 +14,19 @@ const LocationApp: React.FC = () => {
       </div>
       <div className="mt-6 space-y-4 ">
         {[
-          { label: "Map", icon: <Map /> },
-          { label: "Direction", icon: <Route /> },
-          { label: "Tracking", icon: <LocateIcon /> },
-          { label: "Setting", icon: <Settings /> },
+          { label: "compass", icon: <Map /> },
+          { label: "map", icon: <Route /> },
+          { label: "#Tracking", icon: <LocateIcon /> },
+          { label: "#Setting", icon: <Settings /> },
         ].map((item, index) => (
-          <button
+          <Link
             key={index}
+            href={item.label}
             className="flex items-center px-4 py-2 bg-blue-100 rounded-lg w-full"
           >
             <span className="material-icons text-blue-500">{item.icon}</span>
             <p className="ml-4 text-gray-800">{item.label}</p>
-          </button>
+          </Link>
         ))}
       </div>
       <div className="mt-6 flex justify-between">

@@ -240,20 +240,61 @@ const ARMapCompass = () => {
     const targetBearing = calculateBearing(userLatLng, nextStep); // Bearing to the next waypoint
     const relativeBearing = (targetBearing - heading + 360) % 360; // Relative angle to align arrow
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    let slideOffset = 0;
+    let movingUp = true;
 
-    // Draw arrow
-    ctx.save();
-    ctx.translate(canvas.width / 2, canvas.height / 2); // Center of the screen
-    ctx.rotate((relativeBearing * Math.PI) / 180); // Rotate arrow based on relative bearing
-    ctx.beginPath();
-    ctx.moveTo(0, -50); // Arrow tip
-    ctx.lineTo(20, 50); // Arrow right tail
-    ctx.lineTo(-20, 50); // Arrow left tail
-    ctx.closePath();
-    ctx.fillStyle = "rgba(0, 0, 255, 0.7)";
-    ctx.fill();
-    ctx.restore();
+    const drawArrow = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Update sliding animation offset
+      if (movingUp) {
+        slideOffset += 2;
+        if (slideOffset >= 30) movingUp = false; // Reverse direction at max offset
+      } else {
+        slideOffset -= 2;
+        if (slideOffset <= 0) movingUp = true; // Reverse direction at min offset
+      }
+
+      // Draw arrow with multiple triangles
+      ctx.save();
+      ctx.translate(canvas.width / 2, canvas.height / 2); // Center of the screen
+      ctx.rotate((relativeBearing * Math.PI) / 180); // Rotate arrow based on relative bearing
+
+      const triangleCount = 5; // Number of triangles
+      const triangleSpacing = 10; // Distance between triangles
+      const baseWidth = 20; // Width of the triangle base
+      const heightIncrement = 15; // Incremental height for each triangle
+
+      for (let i = 0; i < triangleCount; i++) {
+        const height = 50 + i * heightIncrement;
+        const offset = i * triangleSpacing;
+
+        ctx.beginPath();
+        ctx.moveTo(0, -height); // Triangle tip
+        ctx.lineTo(baseWidth / 2 + offset, -(height - 20)); // Right tail
+        ctx.lineTo(-baseWidth / 2 - offset, -(height - 20)); // Left tail
+        ctx.closePath();
+
+        const opacity = 1 - i * 0.2; // Gradual fade
+        ctx.fillStyle = `rgba(0, 0, 255, ${opacity})`; // Blue gradient
+        ctx.fill();
+      }
+
+      // Sliding animation triangle at the tip
+      ctx.beginPath();
+      ctx.moveTo(0, -50 - slideOffset); // Tip of the sliding triangle
+      ctx.lineTo(10, -40 - slideOffset); // Right base of the sliding triangle
+      ctx.lineTo(-10, -40 - slideOffset); // Left base of the sliding triangle
+      ctx.closePath();
+      ctx.fillStyle = "rgba(255, 0, 0, 0.7)"; // Red for visibility
+      ctx.fill();
+
+      ctx.restore();
+
+      requestAnimationFrame(drawArrow); // Recursive animation
+    };
+
+    drawArrow();
   };
 
   return (
